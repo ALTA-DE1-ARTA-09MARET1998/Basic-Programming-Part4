@@ -1,5 +1,15 @@
 def ubah_huruf(sentence):
+    cipher_key = 10
     pattern = ""
+
+    for char in sentence:
+        if char.isalpha():
+            shift = ord('A') if char.isupper() else ord('a')
+            encoded_char = chr((ord(char) - shift + cipher_key) % 26 + shift)
+            pattern += encoded_char
+        else:
+            pattern += char
+
     return pattern
 
 if __name__ == '__main__':
