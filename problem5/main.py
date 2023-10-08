@@ -1,6 +1,20 @@
 def mean_median(array_input):
     mean = 1.0
     median = 1
+    if not array_input:
+        return None
+    
+    sorted_array = sorted (array_input)
+    length = len(sorted_array)
+
+    mean = sum(sorted_array) / length
+
+    if length % 2 == 0 :
+        median = (sorted_array[length // 2 - 1] + sorted_array[length // 2]) / 2
+
+    else:
+        median = sorted_array[length // 2]
+
     return (mean, median)
 
 if __name__ == '__main__':
